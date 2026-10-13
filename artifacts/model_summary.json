@@ -1,0 +1,45 @@
+{
+  "IMPORTANT_NOTE": "Metrics produced from synthetic data are for software/pipeline testing only and must not be reported as scientific model performance.",
+  "rows_total": 5000,
+  "train_rows": 4000,
+  "test_rows": 1000,
+  "train_participants": 200,
+  "test_participants": 50,
+  "regression": {
+    "best_model": "ridge",
+    "metrics": {
+      "ridge": {
+        "MAE": 0.5430566222072745,
+        "RMSE": 0.676879727040786,
+        "R2": 0.5558472066326379
+      },
+      "random_forest": {
+        "MAE": 0.5641561425051138,
+        "RMSE": 0.6998685941897788,
+        "R2": 0.5251653589124997
+      },
+      "hist_gradient_boosting": {
+        "MAE": 0.5590813474992355,
+        "RMSE": 0.6990650394280779,
+        "R2": 0.5262550966098527
+      }
+    }
+  },
+  "classification": {
+    "best_model": "random_forest_classifier",
+    "metrics": {
+      "logistic_regression": {
+        "accuracy": 0.532,
+        "macro_f1": 0.33789922899495356
+      },
+      "random_forest_classifier": {
+        "accuracy": 0.801,
+        "macro_f1": 0.41108380673810024
+      },
+      "hist_gradient_boosting_classifier": {
+        "accuracy": 0.821,
+        "macro_f1": 0.33623962663385204
+      }
+    }
+  }
+}
