@@ -9,4 +9,6 @@ artifacts/*.joblib
 artifacts/**/*.joblib
 # Real PMData-derived, per-session participant-level predictions (private; regenerate locally)
 artifacts/pp1_model_optimization/real_pmdata/pmdata_lopo_oof_predictions.csv
+artifacts/**/*_oof_predictions.csv
 .pytest_cache/
+.vscode/

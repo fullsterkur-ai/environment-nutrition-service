@@ -1,0 +1,9 @@
+train_rows_per_fold,train_R2_mean,train_R2_std,validation_R2_mean,validation_R2_std,estimator,protocol
+240,0.6077381386961465,0.021345085606920874,0.5137890202928889,0.03429153470815612,elasticnet_fe,GroupKFold(5) on dev participants; fixed hyper-parameters of the frozen model
+548,0.579435435240382,0.027377028599124626,0.5429082250087147,0.02251058814899606,elasticnet_fe,GroupKFold(5) on dev participants; fixed hyper-parameters of the frozen model
+857,0.5685883729214117,0.0308945178947565,0.545842477530182,0.022622579086350274,elasticnet_fe,GroupKFold(5) on dev participants; fixed hyper-parameters of the frozen model
+1165,0.5650678883800504,0.0107794093496359,0.550289180830819,0.02265463070214773,elasticnet_fe,GroupKFold(5) on dev participants; fixed hyper-parameters of the frozen model
+1474,0.5615650931189325,0.00633044871344979,0.5503692170802148,0.022052397217177774,elasticnet_fe,GroupKFold(5) on dev participants; fixed hyper-parameters of the frozen model
+1782,0.5592125401343921,0.0023576725724497125,0.5506880835315939,0.021924138959457256,elasticnet_fe,GroupKFold(5) on dev participants; fixed hyper-parameters of the frozen model
+2091,0.5614432550135271,0.0039894161731333306,0.5520298594870461,0.020938590148761347,elasticnet_fe,GroupKFold(5) on dev participants; fixed hyper-parameters of the frozen model
+2400,0.5634929794633361,0.00507620846910978,0.5536862343158054,0.021066693992315352,elasticnet_fe,GroupKFold(5) on dev participants; fixed hyper-parameters of the frozen model

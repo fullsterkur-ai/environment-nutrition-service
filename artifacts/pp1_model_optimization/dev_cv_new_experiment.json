@@ -1,0 +1,329 @@
+{
+  "IMPORTANT_NOTE": "DEVELOPMENT-CV evidence on SYNTHETIC data only. The sealed and legacy holdouts were NOT used. No independent evaluation data exists for any newly chosen candidate, so no claim about the R2 >= 0.60 target is made.",
+  "protocol": {
+    "data": "dev participants only",
+    "outer_cv": "GroupKFold(5) (same folds as PP1)",
+    "inner_cv_for_new_candidates": "GroupKFold(3) on outer-training participants",
+    "grid": {
+      "model__alpha": [
+        0.003,
+        0.01,
+        0.03,
+        0.1,
+        0.3
+      ],
+      "model__l1_ratio": [
+        0.2,
+        0.6,
+        0.9
+      ]
+    },
+    "inputs": [
+      "temperature_c",
+      "humidity_pct",
+      "air_quality_index",
+      "sleep_hours",
+      "sleep_quality_1_5",
+      "mood_readiness_1_5",
+      "planned_duration_min",
+      "planned_intensity_1_10",
+      "workout_type"
+    ],
+    "n_rows": 3000,
+    "n_participants": 150
+  },
+  "candidates": {
+    "mean_baseline": {
+      "description": "Mean predictor",
+      "nested_hyperparameter_search": false,
+      "pooled_oof": {
+        "n": 3000,
+        "R2": -0.001326867118816244,
+        "MAE": 0.7980996666666665,
+        "RMSE": 1.000020233823074,
+        "within_pm1": {
+          "label": "Predictions within \u00b11 RPE point (%)",
+          "tolerance": 1.0,
+          "count_within": 2065,
+          "n": 3000,
+          "pct": 68.83333333333333
+        },
+        "bias_mean_error": -2.486899575160351e-16,
+        "abs_error_quantiles": {
+          "p50": 0.6861250000000005,
+          "p75": 1.1192916666666664,
+          "p90": 1.6334583333333326,
+          "p95": 2.0011666666666663,
+          "p99": 2.619385833333331
+        },
+        "share_abs_error_gt_2": 0.051333333333333335
+      },
+      "fold_R2": [
+        -0.010220608716174917,
+        -0.0022517333259370886,
+        -0.000611992177784737,
+        -0.005636453913388628,
+        -5.426967463417753e-06
+      ],
+      "fold_R2_mean": -0.003745243020149758,
+      "fold_R2_std": 0.00378262067079911,
+      "chosen_params_per_fold": [],
+      "seconds": 0.0
+    },
+    "elasticnet_fe_frozen": {
+      "description": "Existing frozen ElasticNet+engineered features (its hyper-parameters were tuned on these same dev folds)",
+      "nested_hyperparameter_search": false,
+      "pooled_oof": {
+        "n": 3000,
+        "R2": 0.5556372485963249,
+        "MAE": 0.5317516830132655,
+        "RMSE": 0.6661770643347222,
+        "within_pm1": {
+          "label": "Predictions within \u00b11 RPE point (%)",
+          "tolerance": 1.0,
+          "count_within": 2607,
+          "n": 3000,
+          "pct": 86.9
+        },
+        "bias_mean_error": 0.001046247861104978,
+        "abs_error_quantiles": {
+          "p50": 0.4462896437724262,
+          "p75": 0.7770973768400764,
+          "p90": 1.076099096128617,
+          "p95": 1.299425880699114,
+          "p99": 1.6945505029131531
+        },
+        "share_abs_error_gt_2": 0.0026666666666666666
+      },
+      "fold_R2": [
+        0.5355371109876232,
+        0.5883318077442088,
+        0.5595170121579784,
+        0.5282735674107422,
+        0.5567716732784743
+      ],
+      "fold_R2_mean": 0.5536862343158054,
+      "fold_R2_std": 0.02106669399231538,
+      "chosen_params_per_fold": [],
+      "seconds": 0.2
+    },
+    "elasticnet_fe_nested": {
+      "description": "Existing recipe re-tuned with the SAME nested protocol as the new candidates (fair reference)",
+      "nested_hyperparameter_search": true,
+      "pooled_oof": {
+        "n": 3000,
+        "R2": 0.5554712449615591,
+        "MAE": 0.5318018849003189,
+        "RMSE": 0.6663014868784605,
+        "within_pm1": {
+          "label": "Predictions within \u00b11 RPE point (%)",
+          "tolerance": 1.0,
+          "count_within": 2609,
+          "n": 3000,
+          "pct": 86.96666666666667
+        },
+        "bias_mean_error": 0.0011138738424294422,
+        "abs_error_quantiles": {
+          "p50": 0.44805612215305723,
+          "p75": 0.7791935646644208,
+          "p90": 1.075717187599773,
+          "p95": 1.2987143807693313,
+          "p99": 1.694680406506408
+        },
+        "share_abs_error_gt_2": 0.0023333333333333335
+      },
+      "fold_R2": [
+        0.5349847240808667,
+        0.5878586051283385,
+        0.5596406151870259,
+        0.5282863832524907,
+        0.5568621364070971
+      ],
+      "fold_R2_mean": 0.5535264928111637,
+      "fold_R2_std": 0.02101458191336128,
+      "chosen_params_per_fold": [
+        {
+          "model__alpha": 0.003,
+          "model__l1_ratio": 0.2
+        },
+        {
+          "model__alpha": 0.003,
+          "model__l1_ratio": 0.2
+        },
+        {
+          "model__alpha": 0.003,
+          "model__l1_ratio": 0.2
+        },
+        {
+          "model__alpha": 0.003,
+          "model__l1_ratio": 0.2
+        },
+        {
+          "model__alpha": 0.003,
+          "model__l1_ratio": 0.2
+        }
+      ],
+      "seconds": 9.7
+    },
+    "spline_elasticnet_nested": {
+      "description": "NEW: cubic spline basis (4 knots) on the 8 numeric inputs + one-hot workout type + ElasticNet",
+      "nested_hyperparameter_search": true,
+      "pooled_oof": {
+        "n": 3000,
+        "R2": 0.5595504150024697,
+        "MAE": 0.5289841541160639,
+        "RMSE": 0.6632373194133652,
+        "within_pm1": {
+          "label": "Predictions within \u00b11 RPE point (%)",
+          "tolerance": 1.0,
+          "count_within": 2618,
+          "n": 3000,
+          "pct": 87.26666666666667
+        },
+        "bias_mean_error": 0.0008746933474852181,
+        "abs_error_quantiles": {
+          "p50": 0.45050412287630737,
+          "p75": 0.7674224371618312,
+          "p90": 1.080492850729251,
+          "p95": 1.2966022977484035,
+          "p99": 1.6993163428017022
+        },
+        "share_abs_error_gt_2": 0.0023333333333333335
+      },
+      "fold_R2": [
+        0.5452845089899387,
+        0.5947164129572259,
+        0.5541008483269962,
+        0.5290201856694449,
+        0.5648551007508017
+      ],
+      "fold_R2_mean": 0.5575954113388815,
+      "fold_R2_std": 0.021958987503321478,
+      "chosen_params_per_fold": [
+        {
+          "model__alpha": 0.01,
+          "model__l1_ratio": 0.9
+        },
+        {
+          "model__alpha": 0.01,
+          "model__l1_ratio": 0.9
+        },
+        {
+          "model__alpha": 0.01,
+          "model__l1_ratio": 0.6
+        },
+        {
+          "model__alpha": 0.01,
+          "model__l1_ratio": 0.9
+        },
+        {
+          "model__alpha": 0.003,
+          "model__l1_ratio": 0.2
+        }
+      ],
+      "seconds": 3.5
+    },
+    "pairwise_poly_elasticnet_nested": {
+      "description": "NEW: all squares + pairwise interactions of the 8 numeric inputs + one-hot workout type + ElasticNet",
+      "nested_hyperparameter_search": true,
+      "pooled_oof": {
+        "n": 3000,
+        "R2": 0.5589719607239536,
+        "MAE": 0.5296018323582243,
+        "RMSE": 0.6636727002100842,
+        "within_pm1": {
+          "label": "Predictions within \u00b11 RPE point (%)",
+          "tolerance": 1.0,
+          "count_within": 2606,
+          "n": 3000,
+          "pct": 86.86666666666666
+        },
+        "bias_mean_error": 0.0008907844985528879,
+        "abs_error_quantiles": {
+          "p50": 0.44932585327069985,
+          "p75": 0.7688266716458116,
+          "p90": 1.077980737453058,
+          "p95": 1.2965097639303418,
+          "p99": 1.7063793728386263
+        },
+        "share_abs_error_gt_2": 0.0023333333333333335
+      },
+      "fold_R2": [
+        0.5403207084840873,
+        0.5895311609015241,
+        0.5606943255254178,
+        0.5304161690956024,
+        0.5644787622612527
+      ],
+      "fold_R2_mean": 0.5570882252535768,
+      "fold_R2_std": 0.020555856918155962,
+      "chosen_params_per_fold": [
+        {
+          "model__alpha": 0.01,
+          "model__l1_ratio": 0.9
+        },
+        {
+          "model__alpha": 0.01,
+          "model__l1_ratio": 0.9
+        },
+        {
+          "model__alpha": 0.01,
+          "model__l1_ratio": 0.9
+        },
+        {
+          "model__alpha": 0.01,
+          "model__l1_ratio": 0.9
+        },
+        {
+          "model__alpha": 0.01,
+          "model__l1_ratio": 0.6
+        }
+      ],
+      "seconds": 3.1
+    }
+  },
+  "comparisons_vs_nested_reference": {
+    "spline_elasticnet_nested_minus_elasticnet_fe_nested": {
+      "mean_fold_R2_delta": 0.004068918527717691,
+      "fold_deltas": [
+        0.010299784909072018,
+        0.006857807828887341,
+        -0.00553976686002966,
+        0.000733802416954199,
+        0.007992964343704556
+      ],
+      "folds_better": 4,
+      "pooled_R2_delta": 0.004079170040910629,
+      "participant_bootstrap_95CI_of_pooled_R2_delta": [
+        -0.0008355857513479502,
+        0.00931510690643723
+      ]
+    },
+    "pairwise_poly_elasticnet_nested_minus_elasticnet_fe_nested": {
+      "mean_fold_R2_delta": 0.003561732442413068,
+      "fold_deltas": [
+        0.005335984403220584,
+        0.0016725557731855911,
+        0.0010537103383918556,
+        0.0021297858431117422,
+        0.007616625854155568
+      ],
+      "folds_better": 5,
+      "pooled_R2_delta": 0.003500715762394524,
+      "participant_bootstrap_95CI_of_pooled_R2_delta": [
+        -0.0005180360500561698,
+        0.0072868020011230645
+      ]
+    }
+  },
+  "participant_offset_ceiling_dev": {
+    "R2_current": 0.5556372485963249,
+    "R2_if_participant_offsets_were_known_in_sample": 0.5793286372357694
+  },
+  "best_new_candidate_by_dev_cv": "spline_elasticnet_nested",
+  "best_new_candidate_fold_R2_mean": 0.5575954113388815,
+  "reaches_0.60_in_dev_cv": false,
+  "independent_evaluation_available": false,
+  "target_0.60_independently_achieved": false,
+  "runtime_seconds": 18.4
+}

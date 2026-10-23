@@ -1,0 +1,547 @@
+{
+  "metric_label": "Predictions within \u00b11 RPE point (%)",
+  "metric_definition": "100 * (# predictions with |actual - predicted| <= 1.0) / (# predictions in the split). Not a classification accuracy; always compare with the mean-predictor baseline.",
+  "primary_research_metric": "regression R2 on session RPE (MAE / RMSE reported alongside)",
+  "frozen_model": "elasticnet_fe",
+  "synthetic_dev_groupkfold_oof": {
+    "dataset": "SYNTHETIC development dataset (not real athletes)",
+    "split": "GroupKFold(5) out-of-fold predictions on the dev participants",
+    "participants": 150,
+    "final_model": {
+      "n": 3000,
+      "R2": 0.5556372485963249,
+      "MAE": 0.5317516830132655,
+      "RMSE": 0.6661770643347222,
+      "within_pm1": {
+        "label": "Predictions within \u00b11 RPE point (%)",
+        "tolerance": 1.0,
+        "count_within": 2607,
+        "n": 3000,
+        "pct": 86.9
+      },
+      "bias_mean_error": 0.0010462478611050023,
+      "abs_error_quantiles": {
+        "p50": 0.4462896437724262,
+        "p75": 0.7770973768400764,
+        "p90": 1.076099096128617,
+        "p95": 1.299425880699114,
+        "p99": 1.6945505029131531
+      },
+      "share_abs_error_gt_2": 0.0026666666666666666
+    },
+    "ridge_raw_baseline": {
+      "n": 3000,
+      "R2": 0.5470602275893106,
+      "MAE": 0.5366354745175722,
+      "RMSE": 0.6725755594737334,
+      "within_pm1": {
+        "label": "Predictions within \u00b11 RPE point (%)",
+        "tolerance": 1.0,
+        "count_within": 2594,
+        "n": 3000,
+        "pct": 86.46666666666667
+      },
+      "bias_mean_error": 0.000702892812660784,
+      "abs_error_quantiles": {
+        "p50": 0.45337790639639275,
+        "p75": 0.7813654201442528,
+        "p90": 1.1002006481492645,
+        "p95": 1.3307112361420745,
+        "p99": 1.7126566291519227
+      },
+      "share_abs_error_gt_2": 0.0023333333333333335
+    },
+    "mean_predictor": {
+      "n": 3000,
+      "R2": -0.001326867118816244,
+      "MAE": 0.7980996666666665,
+      "RMSE": 1.000020233823074,
+      "within_pm1": {
+        "label": "Predictions within \u00b11 RPE point (%)",
+        "tolerance": 1.0,
+        "count_within": 2065,
+        "n": 3000,
+        "pct": 68.83333333333333
+      },
+      "bias_mean_error": -2.486899575160351e-16,
+      "abs_error_quantiles": {
+        "p50": 0.6861250000000005,
+        "p75": 1.1192916666666664,
+        "p90": 1.6334583333333326,
+        "p95": 2.0011666666666663,
+        "p99": 2.619385833333331
+      },
+      "share_abs_error_gt_2": 0.051333333333333335
+    }
+  },
+  "synthetic_sealed_holdout": {
+    "dataset": "SYNTHETIC development dataset (not real athletes)",
+    "split": "50 participants never used for tuning; evaluated once to report the frozen model",
+    "participants": 50,
+    "final_model": {
+      "n": 1000,
+      "R2": 0.5573566171976082,
+      "MAE": 0.5307615148090731,
+      "RMSE": 0.6633774237147992,
+      "within_pm1": {
+        "label": "Predictions within \u00b11 RPE point (%)",
+        "tolerance": 1.0,
+        "count_within": 861,
+        "n": 1000,
+        "pct": 86.1
+      },
+      "bias_mean_error": -0.022578032013410975,
+      "abs_error_quantiles": {
+        "p50": 0.449500939113864,
+        "p75": 0.7697564800036858,
+        "p90": 1.116181178210509,
+        "p95": 1.296658677429852,
+        "p99": 1.6669499122800426
+      },
+      "share_abs_error_gt_2": 0.002
+    },
+    "mean_predictor_fit_on_dev": {
+      "n": 1000,
+      "R2": -5.262711462661329e-05,
+      "MAE": 0.7966286666666667,
+      "RMSE": 0.9971147181298203,
+      "within_pm1": {
+        "label": "Predictions within \u00b11 RPE point (%)",
+        "tolerance": 1.0,
+        "count_within": 681,
+        "n": 1000,
+        "pct": 68.1
+      },
+      "bias_mean_error": 0.007233333333333242,
+      "abs_error_quantiles": {
+        "p50": 0.6811666666666669,
+        "p75": 1.181166666666667,
+        "p90": 1.618833333333333,
+        "p95": 1.9811666666666667,
+        "p99": 2.419456666666666
+      },
+      "share_abs_error_gt_2": 0.046
+    },
+    "note": "Already consulted to report the optimised model; do not use for any further model selection."
+  },
+  "synthetic_legacy_holdout": {
+    "dataset": "SYNTHETIC development dataset (not real athletes)",
+    "split": "50 original test participants; already used to pick the baseline in train_models.py (comparison only)",
+    "participants": 50,
+    "final_model": {
+      "n": 1000,
+      "R2": 0.5667971435442364,
+      "MAE": 0.5381241831465384,
+      "RMSE": 0.6684839181365543,
+      "within_pm1": {
+        "label": "Predictions within \u00b11 RPE point (%)",
+        "tolerance": 1.0,
+        "count_within": 852,
+        "n": 1000,
+        "pct": 85.2
+      },
+      "bias_mean_error": 0.019217268565958675,
+      "abs_error_quantiles": {
+        "p50": 0.45158426870841817,
+        "p75": 0.8029806846824166,
+        "p90": 1.0954478560523702,
+        "p95": 1.2843298061340185,
+        "p99": 1.6292870259742047
+      },
+      "share_abs_error_gt_2": 0.002
+    },
+    "mean_predictor_fit_on_dev": {
+      "n": 1000,
+      "R2": -0.0007456130955783014,
+      "MAE": 0.8153053333333333,
+      "RMSE": 1.0160314600334863,
+      "within_pm1": {
+        "label": "Predictions within \u00b11 RPE point (%)",
+        "tolerance": 1.0,
+        "count_within": 657,
+        "n": 1000,
+        "pct": 65.7
+      },
+      "bias_mean_error": 0.02773333333333326,
+      "abs_error_quantiles": {
+        "p50": 0.7188333333333334,
+        "p75": 1.181166666666667,
+        "p90": 1.6250666666666678,
+        "p95": 1.9830499999999984,
+        "p99": 2.5198333333333323
+      },
+      "share_abs_error_gt_2": 0.05
+    }
+  },
+  "real_pmdata_lopo": {
+    "available": true,
+    "dataset": "REAL PMData (audited prospective sessions; no environment data) - separate from synthetic",
+    "split": "leave-one-participant-out out-of-fold predictions",
+    "participants": 15,
+    "n": 539,
+    "mean_predictor": {
+      "n": 539,
+      "R2": -0.026785032299305067,
+      "MAE": 1.4669819702441975,
+      "RMSE": 1.7674401028088875,
+      "within_pm1": {
+        "label": "Predictions within \u00b11 RPE point (%)",
+        "tolerance": 1.0,
+        "count_within": 216,
+        "n": 539,
+        "pct": 40.07421150278293
+      },
+      "bias_mean_error": 0.004524558060127256,
+      "abs_error_quantiles": {
+        "p50": 1.374732334047109,
+        "p75": 2.297532840039907,
+        "p90": 2.804597701149425,
+        "p95": 3.3292335893854736,
+        "p99": 4.359375
+      },
+      "share_abs_error_gt_2": 0.2782931354359926
+    },
+    "best_candidate_name": "elasticnet_raw_wellness",
+    "best_candidate": {
+      "n": 539,
+      "R2": -0.0014866026379134478,
+      "MAE": 1.430862058025505,
+      "RMSE": 1.745530783034502,
+      "within_pm1": {
+        "label": "Predictions within \u00b11 RPE point (%)",
+        "tolerance": 1.0,
+        "count_within": 216,
+        "n": 539,
+        "pct": 40.07421150278293
+      },
+      "bias_mean_error": 0.02864720571362357,
+      "abs_error_quantiles": {
+        "p50": 1.3339939318386929,
+        "p75": 2.2138426523001518,
+        "p90": 2.730026420832128,
+        "p95": 3.209330087317199,
+        "p99": 4.298423434861718
+      },
+      "share_abs_error_gt_2": 0.2912801484230056
+    },
+    "all_candidates": {
+      "dummy_mean": {
+        "n": 539,
+        "R2": -0.026785032299305067,
+        "MAE": 1.4669819702441975,
+        "RMSE": 1.7674401028088875,
+        "within_pm1": {
+          "label": "Predictions within \u00b11 RPE point (%)",
+          "tolerance": 1.0,
+          "count_within": 216,
+          "n": 539,
+          "pct": 40.07421150278293
+        },
+        "bias_mean_error": 0.004524558060127256,
+        "abs_error_quantiles": {
+          "p50": 1.374732334047109,
+          "p75": 2.297532840039907,
+          "p90": 2.804597701149425,
+          "p95": 3.3292335893854736,
+          "p99": 4.359375
+        },
+        "share_abs_error_gt_2": 0.2782931354359926
+      },
+      "ridge_raw_wellness": {
+        "n": 539,
+        "R2": 0.000527517786656384,
+        "MAE": 1.4258007924298461,
+        "RMSE": 1.7437746543903814,
+        "within_pm1": {
+          "label": "Predictions within \u00b11 RPE point (%)",
+          "tolerance": 1.0,
+          "count_within": 216,
+          "n": 539,
+          "pct": 40.07421150278293
+        },
+        "bias_mean_error": 0.019332934645420095,
+        "abs_error_quantiles": {
+          "p50": 1.2876836116733736,
+          "p75": 2.145801151232354,
+          "p90": 2.773400866631645,
+          "p95": 3.2291157962763504,
+          "p99": 4.313953414756909
+        },
+        "share_abs_error_gt_2": 0.287569573283859
+      },
+      "elasticnet_raw_wellness": {
+        "n": 539,
+        "R2": -0.0014866026379134478,
+        "MAE": 1.430862058025505,
+        "RMSE": 1.745530783034502,
+        "within_pm1": {
+          "label": "Predictions within \u00b11 RPE point (%)",
+          "tolerance": 1.0,
+          "count_within": 216,
+          "n": 539,
+          "pct": 40.07421150278293
+        },
+        "bias_mean_error": 0.02864720571362357,
+        "abs_error_quantiles": {
+          "p50": 1.3339939318386929,
+          "p75": 2.2138426523001518,
+          "p90": 2.730026420832128,
+          "p95": 3.209330087317199,
+          "p99": 4.298423434861718
+        },
+        "share_abs_error_gt_2": 0.2912801484230056
+      },
+      "ridge_raw_act": {
+        "n": 539,
+        "R2": -0.015296492371026371,
+        "MAE": 1.4461728845845272,
+        "RMSE": 1.757524480851994,
+        "within_pm1": {
+          "label": "Predictions within \u00b11 RPE point (%)",
+          "tolerance": 1.0,
+          "count_within": 206,
+          "n": 539,
+          "pct": 38.218923933209645
+        },
+        "bias_mean_error": 0.02580558005123127,
+        "abs_error_quantiles": {
+          "p50": 1.3536142641878186,
+          "p75": 2.2041523858456253,
+          "p90": 2.7276263256624835,
+          "p95": 3.2677625584771075,
+          "p99": 4.274392828863443
+        },
+        "share_abs_error_gt_2": 0.2949907235621521
+      },
+      "elasticnet_raw_act": {
+        "n": 539,
+        "R2": 0.0006454061493665897,
+        "MAE": 1.4333713021364884,
+        "RMSE": 1.743671811738505,
+        "within_pm1": {
+          "label": "Predictions within \u00b11 RPE point (%)",
+          "tolerance": 1.0,
+          "count_within": 213,
+          "n": 539,
+          "pct": 39.51762523191095
+        },
+        "bias_mean_error": 0.005716552962151324,
+        "abs_error_quantiles": {
+          "p50": 1.3034409627998667,
+          "p75": 2.244971006998747,
+          "p90": 2.705272346060275,
+          "p95": 3.2281637252808517,
+          "p99": 4.300004979951961
+        },
+        "share_abs_error_gt_2": 0.287569573283859
+      },
+      "ridge_eng_wellness": {
+        "n": 539,
+        "R2": 0.013463639240381187,
+        "MAE": 1.4106905967281824,
+        "RMSE": 1.7324531082438877,
+        "within_pm1": {
+          "label": "Predictions within \u00b11 RPE point (%)",
+          "tolerance": 1.0,
+          "count_within": 217,
+          "n": 539,
+          "pct": 40.25974025974026
+        },
+        "bias_mean_error": 0.008754198546732862,
+        "abs_error_quantiles": {
+          "p50": 1.2477827679938418,
+          "p75": 2.117924127045912,
+          "p90": 2.7934003135809973,
+          "p95": 3.1665410961710285,
+          "p99": 4.271862346616224
+        },
+        "share_abs_error_gt_2": 0.28014842300556586
+      },
+      "elasticnet_eng_wellness": {
+        "n": 539,
+        "R2": 0.007815850941198188,
+        "MAE": 1.420911028077938,
+        "RMSE": 1.7374050618394261,
+        "within_pm1": {
+          "label": "Predictions within \u00b11 RPE point (%)",
+          "tolerance": 1.0,
+          "count_within": 212,
+          "n": 539,
+          "pct": 39.332096474953616
+        },
+        "bias_mean_error": 0.04406326352269847,
+        "abs_error_quantiles": {
+          "p50": 1.2556489518879053,
+          "p75": 2.1391565964514156,
+          "p90": 2.740042343276959,
+          "p95": 3.1851245715932106,
+          "p99": 4.277410885834951
+        },
+        "share_abs_error_gt_2": 0.2857142857142857
+      },
+      "ridge_eng_act": {
+        "n": 539,
+        "R2": 0.004439404129356395,
+        "MAE": 1.4239458826382723,
+        "RMSE": 1.7403587844316613,
+        "within_pm1": {
+          "label": "Predictions within \u00b11 RPE point (%)",
+          "tolerance": 1.0,
+          "count_within": 213,
+          "n": 539,
+          "pct": 39.51762523191095
+        },
+        "bias_mean_error": 0.007413856551612981,
+        "abs_error_quantiles": {
+          "p50": 1.2822977053146447,
+          "p75": 2.167259743238898,
+          "p90": 2.795186423968275,
+          "p95": 3.2579531761151985,
+          "p99": 4.299734499814089
+        },
+        "share_abs_error_gt_2": 0.287569573283859
+      },
+      "elasticnet_eng_act": {
+        "n": 539,
+        "R2": 0.0013875901877320462,
+        "MAE": 1.4315927178531804,
+        "RMSE": 1.7430242108974603,
+        "within_pm1": {
+          "label": "Predictions within \u00b11 RPE point (%)",
+          "tolerance": 1.0,
+          "count_within": 213,
+          "n": 539,
+          "pct": 39.51762523191095
+        },
+        "bias_mean_error": 0.011824556975324892,
+        "abs_error_quantiles": {
+          "p50": 1.3133892811102914,
+          "p75": 2.231224557390848,
+          "p90": 2.7035612420587887,
+          "p95": 3.237505762507131,
+          "p99": 4.288174102878922
+        },
+        "share_abs_error_gt_2": 0.2912801484230056
+      },
+      "random_forest_shallow_raw_wellness": {
+        "n": 539,
+        "R2": -0.012220196242088477,
+        "MAE": 1.4375150556394405,
+        "RMSE": 1.7548598565310711,
+        "within_pm1": {
+          "label": "Predictions within \u00b11 RPE point (%)",
+          "tolerance": 1.0,
+          "count_within": 204,
+          "n": 539,
+          "pct": 37.84786641929499
+        },
+        "bias_mean_error": 0.026449988437762778,
+        "abs_error_quantiles": {
+          "p50": 1.2214318172546452,
+          "p75": 2.1161548507586434,
+          "p90": 2.7645000145496463,
+          "p95": 3.1693771252138956,
+          "p99": 4.135373390687889
+        },
+        "share_abs_error_gt_2": 0.30612244897959184
+      },
+      "hist_gb_shallow_raw_wellness": {
+        "n": 539,
+        "R2": 0.0029965950729033963,
+        "MAE": 1.4234431661781446,
+        "RMSE": 1.7416194290978702,
+        "within_pm1": {
+          "label": "Predictions within \u00b11 RPE point (%)",
+          "tolerance": 1.0,
+          "count_within": 209,
+          "n": 539,
+          "pct": 38.775510204081634
+        },
+        "bias_mean_error": 0.021478157811237773,
+        "abs_error_quantiles": {
+          "p50": 1.18954452210735,
+          "p75": 2.1417111290219277,
+          "p90": 2.8233389623593754,
+          "p95": 3.176468656520363,
+          "p99": 4.14427300837661
+        },
+        "share_abs_error_gt_2": 0.29313543599257885
+      },
+      "random_forest_shallow_raw_act": {
+        "n": 539,
+        "R2": -0.0071126219114914235,
+        "MAE": 1.4324168200283656,
+        "RMSE": 1.7504268228234419,
+        "within_pm1": {
+          "label": "Predictions within \u00b11 RPE point (%)",
+          "tolerance": 1.0,
+          "count_within": 202,
+          "n": 539,
+          "pct": 37.47680890538033
+        },
+        "bias_mean_error": 0.005682145649132396,
+        "abs_error_quantiles": {
+          "p50": 1.2650974593550988,
+          "p75": 2.163437171335882,
+          "p90": 2.6975185014285175,
+          "p95": 3.1616345056847517,
+          "p99": 4.201773750860379
+        },
+        "share_abs_error_gt_2": 0.31539888682745826
+      },
+      "hist_gb_shallow_raw_act": {
+        "n": 539,
+        "R2": -0.015137606242547674,
+        "MAE": 1.4357402015327019,
+        "RMSE": 1.7573869559080995,
+        "within_pm1": {
+          "label": "Predictions within \u00b11 RPE point (%)",
+          "tolerance": 1.0,
+          "count_within": 207,
+          "n": 539,
+          "pct": 38.40445269016698
+        },
+        "bias_mean_error": 0.01731799457194009,
+        "abs_error_quantiles": {
+          "p50": 1.3087959211097617,
+          "p75": 2.1596872147261266,
+          "p90": 2.7484462187480614,
+          "p95": 3.224947258712798,
+          "p99": 4.228858784366615
+        },
+        "share_abs_error_gt_2": 0.2987012987012987
+      }
+    },
+    "note": "The best candidate is the maximum over many candidates on the same 15 participants and is optimistically biased. Real-data skill is essentially nil."
+  },
+  "completion_classification_reference": {
+    "dataset": "SYNTHETIC, legacy test participants",
+    "n": 1000,
+    "class_share": {
+      "Completed as planned": 0.825,
+      "Partially completed": 0.161,
+      "Not completed": 0.014
+    },
+    "majority_class_baseline": {
+      "class": "Completed as planned",
+      "accuracy": 0.825,
+      "macro_f1": 0.3013698630136986
+    },
+    "stored_model_metrics": {
+      "logistic_regression": {
+        "accuracy": 0.532,
+        "macro_f1": 0.33789922899495356
+      },
+      "random_forest_classifier": {
+        "accuracy": 0.801,
+        "macro_f1": 0.41108380673810024
+      },
+      "hist_gradient_boosting_classifier": {
+        "accuracy": 0.821,
+        "macro_f1": 0.33623962663385204
+      }
+    },
+    "stored_best_model": "random_forest_classifier",
+    "note": "Accuracy must be read against the majority-class baseline; macro F1 is the primary metric."
+  }
+}
