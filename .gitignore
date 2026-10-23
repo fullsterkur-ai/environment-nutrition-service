@@ -5,3 +5,8 @@ __pycache__/
 .env
 .ipynb_checkpoints/
 artifacts/*.joblib
+# PP1 / experiment model binaries (regenerate with `python -m ml.pp1_optimize`)
+artifacts/**/*.joblib
+# Real PMData-derived, per-session participant-level predictions (private; regenerate locally)
+artifacts/pp1_model_optimization/real_pmdata/pmdata_lopo_oof_predictions.csv
+.pytest_cache/

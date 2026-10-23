@@ -1,0 +1,33 @@
+search-path = [
+    ".",
+    "venv/Lib/site-packages"
+]
+
+ignore-missing-imports = [
+    "joblib",
+    "joblib.*",
+    "pandas",
+    "pandas.*",
+    "numpy",
+    "numpy.*",
+    "sklearn",
+    "sklearn.*",
+    "scipy",
+    "scipy.*",
+    "xgboost",
+    "xgboost.*",
+    "fastapi",
+    "fastapi.*",
+    "pydantic",
+    "pydantic.*",
+    "starlette",
+    "starlette.*",
+    "uvicorn",
+    "uvicorn.*",
+    "pytest",
+    "pytest.*",
+    "dotenv",
+    "dotenv.*"
+]
+
+preset = "basic"
