@@ -1,8 +1,8 @@
 
 import argparse
 import json
-import joblib
-import pandas as pd
+import joblib  # pyrefly: ignore [missing-import]  # type: ignore
+import pandas as pd  # pyrefly: ignore [missing-import]  # type: ignore
 
 FEATURES = [
     "temperature_c",
