@@ -18,7 +18,7 @@ Tasks performed:
 7. Evaluates permutation feature importance across validation folds.
 8. Performs dedicated Strength-subset evaluation (Task E) with GroupKFold and descriptive statistics.
 9. Exports structured CSV tables, figures, and an exhaustive research report under:
-   C:\\Users\\rivinma\\Desktop\\ResearchData\\pmdata_experiments\\
+   PMDATA_EXPERIMENTS_DIR (default: <RESEARCH_DATA_DIR>/pmdata_experiments, see ml/paths.py)
 """
 
 import os
@@ -54,13 +54,11 @@ try:
 except ImportError:
     HAS_MATPLOTLIB = False
 
-# Paths
-EXP_DIR = Path(r"C:\Users\rivinma\Desktop\ResearchData\pmdata_experiments")
-AUDITED_CSV = EXP_DIR / "pmdata_audited_prospective_sessions.csv"
-FIGURES_DIR = EXP_DIR / "figures"
+# Paths (external data location is configurable, see ml/paths.py)
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from ml.paths import AUDITED_CSV, PMDATA_EXPERIMENTS_DIR as EXP_DIR  # noqa: E402
 
-EXP_DIR.mkdir(parents=True, exist_ok=True)
-FIGURES_DIR.mkdir(parents=True, exist_ok=True)
+FIGURES_DIR = EXP_DIR / "figures"
 
 RANDOM_STATE = 23166660
 
@@ -418,7 +416,12 @@ def main():
     print("=" * 80)
 
     if not AUDITED_CSV.is_file():
-        raise FileNotFoundError(f"Audited CSV not found at: {AUDITED_CSV}. Please run ml/audit_pmdata_timing.py first.")
+        raise FileNotFoundError(
+            f"Audited CSV not found at: {AUDITED_CSV}. Run ml/audit_pmdata_timing.py first, or set "
+            "PMDATA_EXPERIMENTS_DIR to the folder that holds the PMData experiment outputs.")
+
+    EXP_DIR.mkdir(parents=True, exist_ok=True)
+    FIGURES_DIR.mkdir(parents=True, exist_ok=True)
 
     df = pd.read_csv(AUDITED_CSV)
     print(f"Loaded audited prospective dataset: {len(df)} sessions from {df[GROUP_COL].nunique()} participants.")

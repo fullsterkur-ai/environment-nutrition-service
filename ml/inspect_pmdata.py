@@ -21,8 +21,12 @@ if sys.platform == "win32":
     sys.stderr.reconfigure(encoding="utf-8", errors="replace")
 
 # ── paths ────────────────────────────────────────────────────────────────────
-DATA_ROOT = r"C:\Users\rivinma\Desktop\ResearchData\pmdata_selected"
-REPORT_PATH = r"C:\Users\rivinma\Desktop\ResearchData\pmdata_profile.txt"
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from ml.paths import PMDATA_RAW_DIR, PMDATA_PROFILE_REPORT, require_dir  # noqa: E402
+
+require_dir(PMDATA_RAW_DIR, "Raw PMData folder (p01..p16)", "PMDATA_RAW_DIR")
+DATA_ROOT = str(PMDATA_RAW_DIR)
+REPORT_PATH = str(PMDATA_PROFILE_REPORT)
 PARTICIPANTS = [f"p{i:02d}" for i in range(1, 17)]
 
 # ── accumulators ─────────────────────────────────────────────────────────────

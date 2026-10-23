@@ -27,9 +27,14 @@ if sys.platform == "win32":
     sys.stderr.reconfigure(encoding="utf-8", errors="replace")
 
 # ── paths ────────────────────────────────────────────────────────────────────
-DATA_ROOT    = r"C:\Users\rivinma\Desktop\ResearchData\pmdata_selected"
-OUTPUT_CSV   = r"C:\Users\rivinma\Desktop\ResearchData\pmdata_merged_sessions.csv"
-REPORT_PATH  = r"C:\Users\rivinma\Desktop\ResearchData\pmdata_merge_report.txt"
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from ml.paths import (PMDATA_RAW_DIR, PMDATA_MERGED_CSV, PMDATA_MERGE_REPORT,  # noqa: E402
+                      require_dir)
+
+require_dir(PMDATA_RAW_DIR, "Raw PMData folder (p01..p16)", "PMDATA_RAW_DIR")
+DATA_ROOT    = str(PMDATA_RAW_DIR)
+OUTPUT_CSV   = str(PMDATA_MERGED_CSV)
+REPORT_PATH  = str(PMDATA_MERGE_REPORT)
 PARTICIPANTS = [f"p{i:02d}" for i in range(1, 17)]
 
 # ── report buffer ────────────────────────────────────────────────────────────

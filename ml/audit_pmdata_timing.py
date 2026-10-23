@@ -17,7 +17,7 @@ Tasks performed:
 5. Produces an audit-approved prospective subset (pmdata_audited_prospective_sessions.csv)
    strictly containing matched_before_session records.
 6. Generates comprehensive audit reports and diagnostic figures under:
-   C:\\Users\\rivinma\\Desktop\\ResearchData\\pmdata_experiments\\
+   PMDATA_EXPERIMENTS_DIR (default: <RESEARCH_DATA_DIR>/pmdata_experiments, see ml/paths.py)
 """
 
 import os
@@ -32,14 +32,12 @@ if sys.platform == "win32":
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
     sys.stderr.reconfigure(encoding="utf-8", errors="replace")
 
-# Configure Paths
-INPUT_MERGED_CSV = Path(r"C:\Users\rivinma\Desktop\ResearchData\pmdata_merged_sessions.csv")
-RAW_DATA_ROOT = Path(r"C:\Users\rivinma\Desktop\ResearchData\pmdata_selected")
-EXP_DIR = Path(r"C:\Users\rivinma\Desktop\ResearchData\pmdata_experiments")
-FIGURES_DIR = EXP_DIR / "figures"
+# Configure Paths (external data location is configurable, see ml/paths.py)
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from ml.paths import (PMDATA_MERGED_CSV as INPUT_MERGED_CSV, PMDATA_RAW_DIR as RAW_DATA_ROOT,  # noqa: E402
+                      PMDATA_EXPERIMENTS_DIR as EXP_DIR)
 
-EXP_DIR.mkdir(parents=True, exist_ok=True)
-FIGURES_DIR.mkdir(parents=True, exist_ok=True)
+FIGURES_DIR = EXP_DIR / "figures"
 
 
 def load_and_audit_timing():
@@ -48,7 +46,11 @@ def load_and_audit_timing():
     print("=" * 80)
 
     if not INPUT_MERGED_CSV.is_file():
-        raise FileNotFoundError(f"Merged CSV not found at: {INPUT_MERGED_CSV}")
+        raise FileNotFoundError(
+            f"Merged CSV not found at: {INPUT_MERGED_CSV}. Run ml/prepare_pmdata.py first, or set "
+            "PMDATA_MERGED_CSV / RESEARCH_DATA_DIR to its location.")
+    EXP_DIR.mkdir(parents=True, exist_ok=True)
+    FIGURES_DIR.mkdir(parents=True, exist_ok=True)
 
     df = pd.read_csv(INPUT_MERGED_CSV)
     print(f"Loaded merged session dataset: {len(df)} rows, {df['participant_id'].nunique()} participants.")
