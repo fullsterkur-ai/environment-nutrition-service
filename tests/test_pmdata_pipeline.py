@@ -18,10 +18,13 @@ import pandas as pd
 import numpy as np
 from sklearn.model_selection import GroupKFold
 
-EXP_DIR = Path(r"C:\Users\rivinma\Desktop\ResearchData\pmdata_experiments")
-AUDITED_CSV = EXP_DIR / "pmdata_audited_prospective_sessions.csv"
-SYNTHETIC_CSV = Path(r"C:\Users\rivinma\Desktop\ResearchProject\environment-nutrition-service\data\TEQS_Synthetic_5000_Development_Dataset.csv")
-RAW_DATA_ROOT = Path(r"C:\Users\rivinma\Desktop\ResearchData\pmdata_selected")
+from ml.paths import AUDITED_CSV, PMDATA_RAW_DIR as RAW_DATA_ROOT, SYNTHETIC_CSV
+
+_PMDATA_SKIP_REASON = (
+    f"External PMData not found at '{AUDITED_CSV}'. Set PMDATA_EXPERIMENTS_DIR / RESEARCH_DATA_DIR "
+    "(see README 'External research data'); this test needs the audited PMData CSV."
+)
+requires_audited_pmdata = unittest.skipUnless(AUDITED_CSV.is_file(), _PMDATA_SKIP_REASON)
 
 
 class TestPMDataPipeline(unittest.TestCase):
@@ -45,6 +48,7 @@ class TestPMDataPipeline(unittest.TestCase):
         self.assertGreater(gap_hours, 0)
         self.assertAlmostEqual(gap_hours, 13.837, places=2)
 
+    @requires_audited_pmdata
     def test_absence_of_future_wellness_matches(self):
         """Verify that every row in the audited prospective dataset occurred strictly BEFORE session start."""
         self.assertTrue(AUDITED_CSV.is_file(), f"Audited dataset missing: {AUDITED_CSV}")
@@ -59,6 +63,7 @@ class TestPMDataPipeline(unittest.TestCase):
         self.assertEqual(len(df), 539, f"Expected exactly 539 audited prospective sessions, got {len(df)}")
         self.assertEqual(df["participant_id"].nunique(), 15, "Expected all 15 active participants to be present")
 
+    @requires_audited_pmdata
     def test_grouped_split_integrity(self):
         """Verify that GroupKFold strictly isolates participants between training and validation folds."""
         df = pd.read_csv(AUDITED_CSV)
@@ -78,6 +83,7 @@ class TestPMDataPipeline(unittest.TestCase):
             self.assertGreater(len(trn_pts), 0)
             self.assertGreater(len(val_pts), 0)
 
+    @requires_audited_pmdata
     def test_prevention_of_feature_leakage(self):
         """Verify that forbidden post-session columns are not used as model predictors."""
         df = pd.read_csv(AUDITED_CSV)
@@ -105,8 +111,10 @@ class TestPMDataPipeline(unittest.TestCase):
         syn_df = pd.read_csv(SYNTHETIC_CSV)
         self.assertEqual(len(syn_df), 5000, "Synthetic dataset row count modified!")
 
-        # Verify raw PMData root exists
-        self.assertTrue(RAW_DATA_ROOT.is_dir(), "Raw PMData directory missing!")
+        # Verify raw PMData root exists (external data; skip with a clear reason when absent)
+        if not RAW_DATA_ROOT.is_dir():
+            self.skipTest(f"Raw PMData folder not found at '{RAW_DATA_ROOT}'. Set PMDATA_RAW_DIR / "
+                          "RESEARCH_DATA_DIR (see README 'External research data').")
         p01_w = RAW_DATA_ROOT / "p01" / "pmsys" / "wellness.csv"
         self.assertTrue(p01_w.is_file(), "p01 wellness.csv missing!")
 

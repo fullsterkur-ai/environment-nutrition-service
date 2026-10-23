@@ -284,6 +284,8 @@ class TestBackendAPI(unittest.TestCase):
         expected_rpe_keys = {
             "predicted_session_rpe",
             "model_name",
+            "model_variant",
+            "model_version",
             "model_status",
             "message",
         }
