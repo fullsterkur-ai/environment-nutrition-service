@@ -85,6 +85,16 @@ class RPEPredictResponse(BaseModel):
         description="Name of the underlying trained ML model",
         examples=["ridge"],
     )
+    model_variant: str = Field(
+        default="baseline",
+        description="Configured RPE model variant ('baseline' or 'pp1_optimized')",
+        examples=["baseline"],
+    )
+    model_version: str = Field(
+        default="unavailable",
+        description="Model artifact identity: variant plus SHA-256 prefix of the loaded artifact file",
+        examples=["baseline+sha256:0123456789ab"],
+    )
     model_status: str = Field(
         default="DEVELOPMENT_ONLY",
         description="Scientific validation status flag",
