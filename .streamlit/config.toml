@@ -1,49 +1,38 @@
 [theme]
 base = "dark"
-primaryColor = "#5A9C64"
-backgroundColor = "#090B0A"
-secondaryBackgroundColor = "#151816"
-textColor = "#F4F5F1"
-linkColor = "#78B883"
-borderColor = "#292E2A"
-codeBackgroundColor = "#111412"
-redColor = "#E56A54"
-orangeColor = "#E99A52"
-yellowColor = "#F2D461"
-greenColor = "#5A9C64"
-blueColor = "#5B7FE2"
-violetColor = "#9B82D1"
-grayColor = "#8B918C"
-font = "Inter:https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-headingFont = "Inter:https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800&display=swap"
-codeFont = "'JetBrains Mono':https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap"
+primaryColor = "#2F6BFF"
+backgroundColor = "#05070D"
+secondaryBackgroundColor = "#0B1220"
+textColor = "#E6ECF8"
+linkColor = "#7FA6FF"
+borderColor = "#1B2A47"
+codeBackgroundColor = "#0B1220"
+redColor = "#9DB8E8"
+orangeColor = "#7FA6FF"
+yellowColor = "#9DB8E8"
+greenColor = "#5B8DEF"
+blueColor = "#2F6BFF"
+violetColor = "#8FA6D8"
+grayColor = "#8C9AB5"
+font = "Inter:https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+codeFont = "'IBM Plex Mono':https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap"
 baseFontSize = 15
-baseFontWeight = 400
-headingFontSizes = ["2.2rem", "1.65rem", "1.28rem", "1.05rem", "0.95rem", "0.85rem"]
-headingFontWeights = [800, 750, 700, 650, 650, 600]
-metricValueFontSize = "2.15rem"
-metricValueFontWeight = 800
-baseRadius = "1rem"
-buttonRadius = "0.8rem"
+headingFontSizes = ["2.2rem", "1.7rem", "1.35rem", "1.15rem", "1.0rem", "0.9rem"]
+headingFontWeights = [650, 650, 600, 600, 600, 600]
+metricValueFontSize = "2rem"
+metricValueFontWeight = 600
+baseRadius = "0.5rem"
+buttonRadius = "0.5rem"
 showWidgetBorder = true
-showSidebarBorder = true
+showSidebarBorder = false
 linkUnderline = false
-paddingTop = "1.15rem"
-paddingBottom = "2.5rem"
-dataframeBorderColor = "#292E2A"
-dataframeHeaderBackgroundColor = "#171A18"
-dataframeHeaderTextColor = "#F4F5F1"
-chartCategoricalColors = ["#5A9C64", "#5B7FE2", "#F2D461", "#E56A54", "#9B82D1", "#61B7AA", "#E99A52"]
-chartSequentialColors = ["#111612", "#17241A", "#1E3422", "#28462D", "#345B3B", "#417349", "#4C8756", "#5A9C64", "#78B883", "#A6D0AD"]
-chartDivergingColors = ["#B94D3A", "#D05A44", "#E56A54", "#ED917F", "#F3BBB0", "#CAD8C8", "#A6C7A7", "#82B387", "#68A471", "#4B8D57"]
+paddingTop = "2.5rem"
+paddingBottom = "3rem"
+dataframeBorderColor = "#1B2A47"
+dataframeHeaderBackgroundColor = "#0B2A5B"
+dataframeHeaderTextColor = "#FFFFFF"
+chartCategoricalColors = ["#2F6BFF", "#E6ECF8", "#8FA6D8", "#0B2A5B", "#5B8DEF", "#8C9AB5", "#1E3F78"]
+chartSequentialColors = ["#0B1B3A", "#0B2A5B", "#1E3F78", "#2F6BFF", "#7FA6FF", "#C7D8FF"]
 
-[theme.sidebar]
-backgroundColor = "#0D0F0E"
-secondaryBackgroundColor = "#171A18"
-codeBackgroundColor = "#111412"
-textColor = "#F4F5F1"
-borderColor = "#292E2A"
-primaryColor = "#5A9C64"
-linkColor = "#78B883"
-paddingTop = "1rem"
-paddingBottom = "1.5rem"
+[client]
+toolbarMode = "minimal"
