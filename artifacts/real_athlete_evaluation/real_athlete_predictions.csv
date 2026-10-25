@@ -1,0 +1,14 @@
+participant_id,session_id,workout_type,planned_duration_min,expected_intensity,actual_rpe,dummy_pred,ridge_pred,elasticnet_pred,random_forest_pred
+P004,P004-S04,Full-body strength,120.0,10.0,10.0,5.64,5.44,5.55,5.94
+P009,P009-S09,Full-body strength,120.0,5.0,4.0,5.64,5.22,5.39,5.34
+P008,P008-S08,Other,150.0,8.0,9.0,5.64,5.61,5.6,4.89
+P025,P025-S025,Upper-body strength,120.0,10.0,9.0,5.64,5.69,5.65,5.73
+P026,P026-S026,Full-body strength,120.0,9.0,9.0,5.64,6.03,5.8,5.86
+P005,P005-S05,Full-body strength,60.0,8.0,6.0,5.64,5.54,5.55,5.81
+P006,P006-S06,Upper-body strength,120.0,7.0,8.0,5.64,5.43,5.5,5.19
+P014,P014-S014,Upper-body strength,60.0,7.0,5.0,5.64,5.55,5.54,5.84
+P035,P035-S35,Powerlifting,300.0,10.0,7.0,5.64,5.53,5.61,6.0
+P021,P021-S021,Full-body strength,1.0,3.0,3.0,5.64,5.46,5.49,5.2
+P028,P028-S028,Powerlifting,60.0,9.0,7.0,5.64,5.63,5.61,6.05
+P002,P002-S02,Other,120.0,6.0,5.0,5.64,5.49,5.54,6.25
+P039,P039-S039,Full-body strength,120.0,10.0,3.0,5.64,5.6,5.6,5.24

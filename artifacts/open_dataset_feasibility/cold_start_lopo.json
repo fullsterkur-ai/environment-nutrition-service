@@ -1,0 +1,114 @@
+{
+  "Remmert2026_OSF_5wprn": {
+    "rows": 1354,
+    "participants": 34,
+    "target_mean": 4.82,
+    "target_sd": 1.79,
+    "sets_performed_by_condition": {
+      "AUTO": {
+        "mean": 8.26,
+        "std": 5.03,
+        "min": 2.0,
+        "max": 16.0
+      },
+      "FIX": {
+        "mean": 8.0,
+        "std": 0.0,
+        "min": 8.0,
+        "max": 8.0
+      }
+    },
+    "results": {
+      "Dummy mean": {
+        "n": 1354,
+        "MAE": 1.478,
+        "RMSE": 1.811,
+        "R2": -0.03,
+        "within1": 40.3,
+        "within1_95CI_participant_bootstrap": [
+          33.2,
+          47.0
+        ]
+      },
+      "ElasticNet": {
+        "n": 1354,
+        "MAE": 1.444,
+        "RMSE": 1.775,
+        "R2": 0.011,
+        "within1": 41.1,
+        "within1_95CI_participant_bootstrap": [
+          33.6,
+          48.3
+        ]
+      },
+      "RandomForest": {
+        "n": 1354,
+        "MAE": 1.473,
+        "RMSE": 1.799,
+        "R2": -0.016,
+        "within1": 38.8,
+        "within1_95CI_participant_bootstrap": [
+          31.7,
+          45.9
+        ]
+      },
+      "Personal running mean (warm start)": {
+        "n": 1014,
+        "MAE": 1.05,
+        "RMSE": 1.345,
+        "R2": 0.42,
+        "within1": 58.9,
+        "note": "per limb, 6th+ session"
+      }
+    }
+  },
+  "Robinson2025_OSF_58hy3": {
+    "rows": 700,
+    "participants": 31,
+    "target_mean": 5.23,
+    "target_sd": 1.83,
+    "results": {
+      "Dummy mean": {
+        "n": 700,
+        "MAE": 1.568,
+        "RMSE": 1.862,
+        "R2": -0.034,
+        "within1": 34.1,
+        "within1_95CI_participant_bootstrap": [
+          26.6,
+          42.0
+        ]
+      },
+      "ElasticNet": {
+        "n": 700,
+        "MAE": 1.579,
+        "RMSE": 1.87,
+        "R2": -0.042,
+        "within1": 34.3,
+        "within1_95CI_participant_bootstrap": [
+          27.2,
+          41.3
+        ]
+      },
+      "RandomForest": {
+        "n": 700,
+        "MAE": 1.606,
+        "RMSE": 1.969,
+        "R2": -0.156,
+        "within1": 32.9,
+        "within1_95CI_participant_bootstrap": [
+          25.0,
+          40.8
+        ]
+      },
+      "Personal running mean (warm start)": {
+        "n": 545,
+        "MAE": 1.012,
+        "RMSE": 1.388,
+        "R2": 0.439,
+        "within1": 63.1,
+        "note": "evaluated on each athlete's 6th+ session"
+      }
+    }
+  }
+}

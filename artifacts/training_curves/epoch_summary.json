@@ -1,0 +1,48 @@
+{
+  "IMPORTANT_NOTE": "Synthetic development data only. Iterative SGD twin of the deployed ElasticNet, used to visualise training. The deployed model was NOT retrained or modified. Sealed/legacy holdouts were NOT used.",
+  "dataset": "data/TEQS_Synthetic_5000_Development_Dataset.csv (SYNTHETIC)",
+  "split": "GroupShuffleSplit(test_size=0.2, seed=23166660) on DEV participants",
+  "participants": {
+    "train": 120,
+    "validation": 30
+  },
+  "rows": {
+    "train": 2400,
+    "validation": 600
+  },
+  "optimiser": "SGDRegressor(penalty=elasticnet, alpha=0.00175528, l1_ratio=0.5955, learning_rate=constant, eta0=2e-05)",
+  "epochs": 150,
+  "accuracy_definition": "% of predictions within +/-1 RPE point (tolerance metric, not classification)",
+  "first_epoch": {
+    "epoch": 1.0,
+    "loss": 33.136283176251574,
+    "val_loss": 33.16958973794931,
+    "accuracy": 0.0,
+    "val_accuracy": 0.0
+  },
+  "final_epoch": {
+    "epoch": 150.0,
+    "loss": 0.44359004662294876,
+    "val_loss": 0.4657115835860937,
+    "accuracy": 87.04166666666667,
+    "val_accuracy": 85.83333333333333
+  },
+  "best_val_loss_epoch": {
+    "epoch": 150.0,
+    "loss": 0.44359004662294876,
+    "val_loss": 0.4657115835860937,
+    "accuracy": 87.04166666666667,
+    "val_accuracy": 85.83333333333333
+  },
+  "reference_same_split": {
+    "elasticnet_closed_form": {
+      "val_loss": 0.45520151841267364,
+      "val_accuracy": 87.0
+    },
+    "dummy_mean": {
+      "val_loss": 1.0062570989583333,
+      "val_accuracy": 73.0
+    }
+  },
+  "runtime_seconds": 0.4
+}

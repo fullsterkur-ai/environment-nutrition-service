@@ -1,0 +1,5 @@
+model,pmdata_train_R2,pmdata_train_MAE,pmdata_train_within_1_pct,pmdata_lopo_R2,pmdata_lopo_MAE,pmdata_lopo_within_1_pct,pmdata_lopo_within_1_count,pmdata_gkf5_R2,pmdata_gkf5_MAE,pmdata_gkf5_within_1_pct,external_test_R2,external_test_MAE,external_test_RMSE,external_test_within_1_pct,external_test_within_1_count,forms_lopo_R2,forms_lopo_MAE,forms_lopo_within_1_pct
+dummy_mean,0.0,1.1256,51.72,-0.12,1.1917,51.72,45 / 87,-0.0919,1.1829,51.72,-0.1503,2.1592,2.4751,23.08,3 / 13,-0.1736,2.2051,23.08
+ridge_wellness,0.0511,1.0795,52.87,-0.3659,1.3115,48.28,42 / 87,-0.189,1.2321,48.28,-0.1241,2.1102,2.4467,23.08,3 / 13,-0.1296,2.0186,38.46
+elasticnet_wellness,0.0393,1.0895,51.72,-0.2845,1.2777,50.57,44 / 87,-0.124,1.1967,51.72,-0.135,2.1304,2.4585,23.08,3 / 13,0.0283,1.7468,38.46
+random_forest_wellness,0.3432,0.8463,66.67,-0.3057,1.2601,54.02,47 / 87,-0.19,1.1997,56.32,-0.122,2.1077,2.4445,23.08,3 / 13,-0.3934,2.2488,23.08

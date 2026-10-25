@@ -1,0 +1,94 @@
+{
+  "Remmert2026_OSF_5wprn": {
+    "Personal running mean": {
+      "n": 1014,
+      "MAE": 1.05,
+      "RMSE": 1.345,
+      "R2": 0.42,
+      "within1": 58.9,
+      "within1_95CI": [
+        52.0,
+        66.0
+      ]
+    },
+    "ElasticNet wellness only": {
+      "n": 1014,
+      "MAE": 1.451,
+      "RMSE": 1.796,
+      "R2": -0.035,
+      "within1": 40.9,
+      "within1_95CI": [
+        33.2,
+        48.2
+      ]
+    },
+    "ElasticNet wellness + personal history": {
+      "n": 1014,
+      "MAE": 0.908,
+      "RMSE": 1.182,
+      "R2": 0.551,
+      "within1": 63.8,
+      "within1_95CI": [
+        58.3,
+        69.3
+      ]
+    },
+    "Dummy (training mean)": {
+      "n": 1014,
+      "MAE": 1.474,
+      "RMSE": 1.796,
+      "R2": -0.035,
+      "within1": 42.5,
+      "within1_95CI": [
+        34.0,
+        50.5
+      ]
+    }
+  },
+  "Robinson2025_OSF_58hy3": {
+    "Personal running mean": {
+      "n": 545,
+      "MAE": 1.012,
+      "RMSE": 1.388,
+      "R2": 0.439,
+      "within1": 63.1,
+      "within1_95CI": [
+        57.4,
+        69.2
+      ]
+    },
+    "ElasticNet wellness only": {
+      "n": 545,
+      "MAE": 1.587,
+      "RMSE": 1.883,
+      "R2": -0.033,
+      "within1": 32.7,
+      "within1_95CI": [
+        25.7,
+        38.7
+      ]
+    },
+    "ElasticNet wellness + personal history": {
+      "n": 545,
+      "MAE": 0.877,
+      "RMSE": 1.154,
+      "R2": 0.612,
+      "within1": 64.0,
+      "within1_95CI": [
+        58.6,
+        69.4
+      ]
+    },
+    "Dummy (training mean)": {
+      "n": 545,
+      "MAE": 1.589,
+      "RMSE": 1.886,
+      "R2": -0.036,
+      "within1": 33.4,
+      "within1_95CI": [
+        25.5,
+        41.9
+      ]
+    }
+  }
+}
