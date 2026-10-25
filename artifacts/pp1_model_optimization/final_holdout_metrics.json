@@ -1,0 +1,95 @@
+{
+  "IMPORTANT_NOTE": "Synthetic development-dataset evidence only. NOT validation on real athletes. All values below were computed by this script.",
+  "target": "session_rpe_1_10",
+  "dataset": "data\\TEQS_Synthetic_5000_Development_Dataset.csv",
+  "best_model_name": "elasticnet_fe",
+  "best_model_best_params": {
+    "model__alpha": 0.0017552820292372649,
+    "model__l1_ratio": 0.5954938167200844
+  },
+  "selection_rule": "highest mean GroupKFold(5) R2 on dev participants only",
+  "dev_cv": {
+    "R2_mean_of_folds": 0.5536862343158054,
+    "R2_std_of_folds": 0.02106669399231538,
+    "R2_pooled_oof": 0.5556372485963249,
+    "MAE": 0.5317516830132655,
+    "RMSE": 0.6661770643347222
+  },
+  "train_R2": 0.5627806183371316,
+  "generalization_gap": {
+    "train_minus_dev_cv_R2": 0.009094384021326118,
+    "dev_cv_minus_sealed_holdout_R2": -0.0036703828818027695
+  },
+  "holdout_evaluations": {
+    "sealed_holdout/final_model": {
+      "R2": 0.5573566171976082,
+      "MAE": 0.5307615148090731,
+      "RMSE": 0.6633774237147992
+    },
+    "sealed_holdout/baseline_recipe_ridge_raw_alpha1": {
+      "R2": 0.5420868792440647,
+      "MAE": 0.5408144519627794,
+      "RMSE": 0.67472257813157
+    },
+    "legacy_holdout/final_model": {
+      "R2": 0.5667971435442364,
+      "MAE": 0.5381241831465382,
+      "RMSE": 0.6684839181365543
+    },
+    "legacy_holdout/baseline_recipe_ridge_raw_alpha1": {
+      "R2": 0.5544174531992776,
+      "MAE": 0.5445032885535621,
+      "RMSE": 0.6779683091137055
+    },
+    "legacy_holdout/original_saved_baseline_artifact": {
+      "R2": 0.5558472066326379,
+      "MAE": 0.5430566222072745,
+      "RMSE": 0.676879727040786
+    },
+    "sealed_holdout/dummy_mean": {
+      "R2": -5.262711462661329e-05,
+      "MAE": 0.7966286666666667,
+      "RMSE": 0.9971147181298203
+    }
+  },
+  "sealed_holdout_R2_participant_bootstrap_95CI": [
+    0.518064822316288,
+    0.5928317455259874
+  ],
+  "target_R2_0.60_achieved_on_sealed_holdout": false,
+  "target_R2_0.60_achieved_on_dev_cv": false,
+  "diagnostics": {
+    "dev_target_std": 0.9995240475660285,
+    "dev_residual_std_ridge_raw": 0.6726873160824218,
+    "share_of_residual_variance_explained_by_participant_mean": 0.05192114933821415,
+    "best_cv_R2_per_family": {
+      "dummy": -0.003745243020149758,
+      "elasticnet": 0.5536862343158054,
+      "extra_trees": 0.533423359967113,
+      "hist_gb": 0.5474173505127168,
+      "random_forest": 0.5377416578858323,
+      "ridge": 0.553497825309139,
+      "xgboost": 0.5480363700124906
+    },
+    "note": "Flexible non-linear models do not beat Ridge on the same 9 inputs, and the participant-mean share of residual variance is small: remaining error is dominated by session-level noise not explained by pre-session inputs."
+  },
+  "holdout_provenance": {
+    "legacy_holdout": "50 original test participants (artifacts/test_participants.csv); ALREADY USED to select Ridge in ml/train_models.py (best test MAE). Not used for any PP1 tuning; reported for comparison only.",
+    "sealed_holdout": "50 new participants sampled (seed 20260601) from the original training participants; evaluated once after freezing the model.",
+    "dev": "remaining 150 participants; all tuning via GroupKFold",
+    "participants": {
+      "dev": 150,
+      "sealed_holdout": 50,
+      "legacy_holdout": 50
+    },
+    "rows": {
+      "dev": 3000,
+      "sealed_holdout": 1000,
+      "legacy_holdout": 1000
+    }
+  },
+  "model_artifact": "artifacts/pp1_model_optimization/best_rpe_model_pp1.joblib",
+  "model_trained_on": "dev participants only (150)",
+  "candidate_catboost": "not installed / not used",
+  "runtime_seconds": 250.8
+}

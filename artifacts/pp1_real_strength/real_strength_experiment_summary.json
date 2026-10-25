@@ -1,0 +1,44 @@
+{
+  "experiment_title": "PMData Genuine Strength Training Recovery-to-RPE Experiment",
+  "scientific_disclaimer": "REAL PMData strength sessions only. Excludes all running, soccer, and endurance data. Excludes post-workout duration to enforce true prospective inference. Does NOT validate the environmental equations of FullStrength.ai (PMData has no microclimate telemetry).",
+  "total_sessions": 87,
+  "total_participants": 10,
+  "participant_list": [
+    "p02",
+    "p04",
+    "p05",
+    "p08",
+    "p10",
+    "p11",
+    "p12",
+    "p13",
+    "p14",
+    "p15"
+  ],
+  "target": "session_rpe",
+  "target_stats": {
+    "mean": 5.644,
+    "std": 1.364,
+    "min": 3.0,
+    "max": 10.0
+  },
+  "features": [
+    "sleep_duration_h",
+    "sleep_quality",
+    "readiness",
+    "mood",
+    "fatigue",
+    "soreness",
+    "stress"
+  ],
+  "best_model_by_lopo_R2": "dummy_mean",
+  "best_lopo_R2": -0.12,
+  "best_lopo_MAE": 1.1917,
+  "best_lopo_RMSE": 1.4439,
+  "best_lopo_within_1_pct": 51.72,
+  "dummy_lopo_R2": -0.12,
+  "dummy_lopo_MAE": 1.1917,
+  "dummy_lopo_within_1_pct": 51.72,
+  "r2_gain_over_dummy": 0.0,
+  "execution_seconds": 5.54
+}

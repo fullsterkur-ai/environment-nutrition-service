@@ -1,0 +1,63 @@
+{
+  "random_seed": 23166660,
+  "split_seed": 20260601,
+  "cv": "GroupKFold(n_splits=5)",
+  "search": "RandomizedSearchCV(n_iter=20, scoring='r2', refit on dev)",
+  "inputs": [
+    "temperature_c",
+    "humidity_pct",
+    "air_quality_index",
+    "sleep_hours",
+    "sleep_quality_1_5",
+    "mood_readiness_1_5",
+    "planned_duration_min",
+    "planned_intensity_1_10",
+    "workout_type"
+  ],
+  "engineered_features_pre_session_only": [
+    "planned_load",
+    "intensity_sq",
+    "duration_log",
+    "heat_humidity",
+    "heat_excess_sq",
+    "humidity_excess",
+    "aqi_excess",
+    "sleep_deficit",
+    "sleep_oversleep",
+    "recovery_index",
+    "readiness_mean",
+    "heat_x_intensity",
+    "poor_recovery_x_intensity",
+    "env_stress_index"
+  ],
+  "excluded_leakage_columns": [
+    "session_id",
+    "timestamp",
+    "actual_duration_min",
+    "session_rpe_1_10",
+    "completion_status",
+    "performance_deviation_pct",
+    "data_type",
+    "participant_id"
+  ],
+  "candidates": [
+    "dummy_mean",
+    "ridge_raw",
+    "elasticnet_raw",
+    "random_forest_raw",
+    "extra_trees_raw",
+    "hist_gb_raw",
+    "xgboost_raw",
+    "ridge_fe",
+    "elasticnet_fe",
+    "random_forest_fe",
+    "extra_trees_fe",
+    "hist_gb_fe",
+    "xgboost_fe"
+  ],
+  "python": "3.13.3",
+  "sklearn": "1.9.0",
+  "pandas": "3.0.5",
+  "numpy": "2.5.2",
+  "xgboost": "3.4.1"
+}

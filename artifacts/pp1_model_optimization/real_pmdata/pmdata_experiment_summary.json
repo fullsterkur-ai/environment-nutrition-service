@@ -1,0 +1,15 @@
+{
+  "IMPORTANT_NOTE": "REAL PMData (not synthetic). Separate from the synthetic experiment. No environment measurements were added. Results reported as computed.",
+  "sessions": 539,
+  "participants": 15,
+  "target_std": 1.7458550559754642,
+  "best_candidate_by_pooled_oof_R2": "elasticnet_raw_wellness",
+  "best_pooled_oof_R2": 0.006492815708856003,
+  "best_MAE": 1.4221096372218156,
+  "best_RMSE": 1.7385463024750334,
+  "dummy_pooled_oof_R2": -0.01819728885347458,
+  "dummy_MAE": 1.4586174816855955,
+  "any_candidate_R2_above_0.10": false,
+  "note_selection": "'best' is the maximum over ~15 candidates on the same 15 participants; it is optimistically biased and should not be read as real performance.",
+  "seconds": 1023.8
+}
