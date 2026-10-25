@@ -1,4 +1,74 @@
-# FullStrength.ai — Environmental Quality & Nutrition Timing Optimizer (TEQS)
+<!-- FS-COLOR-HEADER-START -->
+<div align="center">
+
+# 🏋️‍♂️ FullStrength.ai — TEQS Service
+
+### 🌡️ Environmental Quality & Nutrition Timing Optimizer
+
+<p>
+<img src="https://img.shields.io/badge/Python-3.11-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python"/>
+<img src="https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI"/>
+<img src="https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white" alt="scikit-learn"/>
+<img src="https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white" alt="Pandas"/>
+<img src="https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white" alt="NumPy"/>
+</p>
+
+<p>
+<img src="https://img.shields.io/badge/Status-Development_Only-FF8C00?style=flat-square" alt="Status"/>
+<img src="https://img.shields.io/badge/Stage-3_Timing_Engine-6A5ACD?style=flat-square" alt="Stage"/>
+<img src="https://img.shields.io/badge/Research-PP1_Oct_2026-0A66C2?style=flat-square" alt="Research"/>
+<img src="https://img.shields.io/badge/License-Research_Only-success?style=flat-square" alt="License"/>
+</p>
+
+<kbd>🌿 branch: <b>feature/teqs-model-pipeline-v2</b></kbd>  &nbsp; <kbd>🎓 IT23166660</kbd>  &nbsp; <kbd>🤖 FastAPI + ML</kbd>
+
+</div>
+
+---
+
+### ✨ What this service does
+
+> 🌡️ **Environment** → 🥗 **Nutrition timing** → 💧 **Hydration windows** → 🧠 **RPE prediction** → 📊 **TEQS score**
+
+The **Environmental Quality & Nutrition Timing Optimizer (TEQS)** scores how ambient training conditions (temperature, humidity, air quality) combined with athlete recovery state (sleep, readiness) shape resistance-training readiness, session RPE, and nutrition / hydration timing windows.
+
+### 📈 Model Performance Visuals
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/fullsterkur-ai/environment-nutrition-service/feature/teqs-model-pipeline-v2/artifacts/pp1_model_optimization/actual_vs_predicted.png" alt="Actual vs Predicted" width="45%"/>
+  &nbsp;
+  <img src="https://raw.githubusercontent.com/fullsterkur-ai/environment-nutrition-service/feature/teqs-model-pipeline-v2/artifacts/pp1_model_optimization/feature_importance.png" alt="Feature Importance" width="45%"/>
+</p>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/fullsterkur-ai/environment-nutrition-service/feature/teqs-model-pipeline-v2/artifacts/pp1_model_optimization/learning_curve.png" alt="Learning Curve" width="45%"/>
+  &nbsp;
+  <img src="https://raw.githubusercontent.com/fullsterkur-ai/environment-nutrition-service/feature/teqs-model-pipeline-v2/artifacts/pp1_model_optimization/model_comparison.png" alt="Model Comparison" width="45%"/>
+</p>
+
+### 🧭 Quick Start
+
+```powershell
+cd environment-nutrition-service
+python -m venv venv
+.\venv\Scripts\pip install -r requirements.txt
+.\venv\Scripts\uvicorn app.main:app --host 127.0.0.1 --port 8000 --reload
+```
+
+Then open 👉 `http://127.0.0.1:8000/docs`
+
+### 🧩 Features at a glance
+
+| 🎯 Feature | 📝 What it does |
+|---|---|
+| 🌡️ **Environment ingest** | Live OpenWeather data: temperature, humidity, AQI |
+| 📊 **TEQS score** | Six sub-scores → single training-environment index |
+| 🧠 **RPE prediction** | sklearn pipeline on 5,000-session synthetic dataset |
+| 💧 **Timing engine** | Rule-based nutrition / hydration windows |
+| 📈 **Dashboard** | Streamlit view for the model artifacts |
+
+<!-- FS-COLOR-HEADER-END -->
+
+---
 
 **Student ID:** IT23166660  
 **Service:** `environment-nutrition-service`  
