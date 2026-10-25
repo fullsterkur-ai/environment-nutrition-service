@@ -53,7 +53,6 @@ def create_application() -> FastAPI:
             status="healthy",
             version=settings.VERSION,
             service=settings.PROJECT_NAME,
-            student_id=settings.STUDENT_ID,
             component=settings.COMPONENT_NAME,
             rpe_model_loaded=rpe_service.is_loaded,
             rpe_model_variant=rpe_service.variant,

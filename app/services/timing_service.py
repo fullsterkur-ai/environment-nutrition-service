@@ -49,10 +49,12 @@ class TimingService:
             applied_rules.append("RULE_ENV_OUTDOOR_DISCLAIMER")
 
         # 2. Duration & Intensity Rules
-        if req.planned_duration_min <= 45.0:
-            applied_rules.append("RULE_DURATION_SHORT")
-        elif req.planned_duration_min >= 75.0:
+        # The short-session advice ("plain water is adequate") is written for moderate
+        # intensity, so it must not fire for a short but very hard session.
+        if req.planned_duration_min >= 75.0:
             applied_rules.append("RULE_DURATION_EXTENDED")
+        elif req.planned_duration_min <= 45.0 and req.planned_intensity_1_10 < 8.0:
+            applied_rules.append("RULE_DURATION_SHORT")
 
         if req.planned_intensity_1_10 >= 8.0:
             applied_rules.append("RULE_INTENSITY_HIGH")

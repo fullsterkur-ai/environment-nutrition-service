@@ -30,14 +30,14 @@ class TestBackendAPI(unittest.TestCase):
         cls.client = TestClient(app)
 
     def test_health_endpoint(self):
-        """Verify GET /health returns 200 with service metadata and student ID."""
+        """Verify GET /health returns 200 with service metadata (and no personal identifiers)."""
         resp = self.client.get("/health")
         self.assertEqual(resp.status_code, 200)
 
         data = resp.json()
         self.assertEqual(data["status"], "healthy")
         self.assertEqual(data["version"], "1.0.0")
-        self.assertEqual(data["student_id"], "IT23166660")
+        self.assertNotIn("student_id", data)
         self.assertIn("TEQS", data["component"])
         self.assertEqual(data["model_status"], "DEVELOPMENT_ONLY")
         self.assertTrue(data["rpe_model_loaded"])

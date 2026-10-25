@@ -78,11 +78,13 @@ class TEQSService:
         )
 
         # Summary limiter note
-        limiter_names = ", ".join(limiters)
-        explanations.insert(
-            0,
-            f"Primary factor constraints reducing overall score: {limiter_names}."
-        )
+        if limiters:
+            explanations.insert(
+                0,
+                f"Primary factor constraints reducing overall score: {', '.join(limiters)}."
+            )
+        else:
+            explanations.insert(0, "No limiting factor: every sub-score is at its 100/100 optimum.")
 
         return explanations
 
@@ -98,7 +100,8 @@ class TEQSService:
 
         result = calculate_development_teqs(inputs)
         subscores = result["subscores"]
-        main_limiters = result["main_limiters"]
+        # A factor already at 100/100 cannot be reducing the score, so it is never a limiter.
+        main_limiters = [name for name in result["main_limiters"] if subscores[name] < 100.0]
 
         env_subscores = EnvironmentalSubscores(
             temperature=subscores["temperature"],

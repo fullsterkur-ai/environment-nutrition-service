@@ -21,7 +21,6 @@ class Settings(BaseModel):
     PROJECT_NAME: str = "FullStrength.ai - Environmental Quality & Nutrition Timing Optimizer (TEQS)"
     VERSION: str = "1.0.0"
     API_V1_STR: str = "/api/v1"
-    STUDENT_ID: str = "IT23166660"
     COMPONENT_NAME: str = "Environmental Quality & Nutrition Timing Optimizer (TEQS)"
 
     # Base paths
